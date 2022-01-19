@@ -88,8 +88,7 @@ namespace UralsibTestTask
                 using (DataContext context = new DataContext())
                 {
                     context.Clients.Remove(client);
-                    var clientInfoId = context.ClientsInfo.First(c => c.ClientInfoId == client.ClientInfoId);
-                    context.ClientsInfo.Remove(new ClientInfo { ClientInfoId = clientInfoId.ClientInfoId });
+                    context.ClientsInfo.Remove(new ClientInfo { ClientInfoId = client.ClientInfoId });
                     context.SaveChanges();
                 }
                 LoadAllClient();
